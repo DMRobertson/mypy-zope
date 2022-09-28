@@ -1,4 +1,5 @@
 import shutil
+from pprint import pprint
 
 from mypy import options, build
 from mypy.fscache import FileSystemCache
@@ -38,7 +39,7 @@ for i in range(2):
         fscache=cache,
     )
 
-    print(result.errors)
+    pprint(result.errors)
     results.append(result)
 
 assert not results[0].errors, results[1].errors
