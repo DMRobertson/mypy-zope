@@ -15,6 +15,7 @@ class Foo(protocol.Protocol):
 opts = options.Options()
 opts.show_traceback = True
 opts.namespace_packages = True
+opts.cache_dir = ".mypy_cache_dmr"
 opts.mypy_path = ["tests/playground/site-packages"]
 opts.ignore_missing_imports = True
 opts.ignore_missing_imports_per_module = True
@@ -35,8 +36,6 @@ for i in range(2):
     result = build.build(
         sources=[source],
         options=opts,
-        # alt_lib_path="tests/playground/site-packages",
-        fscache=cache,
     )
 
     pprint(result.errors)
