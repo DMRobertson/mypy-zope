@@ -6,9 +6,9 @@ from mypy.fscache import FileSystemCache
 from mypy.modulefinder import BuildSource
 
 SOURCE_CODE = """
-from twisted.internet import protocol
+from example import Protocol
 
-class Foo(protocol.Protocol):
+class Foo(Protocol):
     pass
 """
 
@@ -24,7 +24,7 @@ opts.plugins = ['mypy_zope:plugin']
 # supposed to.
 opts.config_file = '    not_existing_config.ini'
 
-shutil.rmtree(".mypy_cache_dmr/3.10/twisted", ignore_errors=True)
+shutil.rmtree(".mypy_cache_dmr/3.10/", ignore_errors=True)
 
 source = BuildSource(None,
                      module=None,
